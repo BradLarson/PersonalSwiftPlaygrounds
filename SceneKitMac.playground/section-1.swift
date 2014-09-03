@@ -28,7 +28,7 @@ scene.rootNode.addChildNode(diffuseLightNode)
 let torusReflectiveMaterial = SCNMaterial()
 torusReflectiveMaterial.diffuse.contents = NSColor.blueColor()
 torusReflectiveMaterial.specular.contents = NSColor.whiteColor()
-torusReflectiveMaterial.shininess = 100.0
+torusReflectiveMaterial.shininess = 5.0
 
 let torus = SCNTorus(ringRadius:60, pipeRadius:20)
 let torusNode = SCNNode(geometry:torus)

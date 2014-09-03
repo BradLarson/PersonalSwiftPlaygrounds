@@ -11,26 +11,27 @@ func plotArrayInPlayground<T>(arrayToPlot:Array<T>, title:String) {
 
 let sineArraySize = 64 // Should be power of two for the FFT
 
-let omega1 = 4.0
-let phi1 = 0.0
+let frequency1 = 4.0
+let phase1 = 0.0
 let amplitude1 = 2.0
 let sineWave = (0..<sineArraySize).map {
-    amplitude1 * sin(2.0 * M_PI / Double(sineArraySize) * Double($0) * omega1 + phi1)
+    amplitude1 * sin(2.0 * M_PI / Double(sineArraySize) * Double($0) * frequency1 + phase1)
 }
 
-let omega2 = 1.0
-let phi2 = M_PI / 2.0
+let frequency2 = 1.0
+let phase2 = M_PI / 2.0
 let amplitude2 = 1.0
 let sineWave2 = (0..<sineArraySize).map {
-    amplitude2 * sin(2.0 * M_PI / Double(sineArraySize) * Double($0) * omega2 + phi2)
+    amplitude2 * sin(2.0 * M_PI / Double(sineArraySize) * Double($0) * frequency2 + phase2)
 }
 
 plotArrayInPlayground(sineWave, "Sine wave 1")
 plotArrayInPlayground(sineWave2, "Sine wave 2")
 
 // Simple loop-based array addition
-let combinedSineWave = (0..<sineArraySize).map {
-    sineWave[$0] + sineWave2[$0]
+var combinedSineWave = [Double](count:sineArraySize, repeatedValue:0.0)
+for currentIndex in 0..<sineArraySize {
+    combinedSineWave[currentIndex] = sineWave[currentIndex] + sineWave2[currentIndex]
 }
 
 // Accelerate-enabled array addition
