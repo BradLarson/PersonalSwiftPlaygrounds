@@ -1,4 +1,5 @@
 import Foundation
+import QuartzCore
 import XCPlayground
 
 let randomArraySize = 20
