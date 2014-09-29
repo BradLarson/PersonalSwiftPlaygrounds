@@ -49,7 +49,7 @@ animation.repeatCount = 100000
 torusNode.addAnimation(animation, forKey:"transform")
 
 // Display
-let sceneKitView = SCNView(frame:NSRect(x:0.0, y:0.0, width:400.0, height:400.0), options:nil)
+let sceneKitView = SCNView(frame:NSRect(x:0.0, y:0.0, width:400.0, height:400.0), options:nil)!
 sceneKitView.scene = scene
 sceneKitView.backgroundColor = NSColor.grayColor()
 
